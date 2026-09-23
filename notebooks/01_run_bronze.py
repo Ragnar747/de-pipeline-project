@@ -2,12 +2,12 @@
 import os
 import sys
 
-sys.path.append(os.path.abspath(os.path.join(os.path.abspath("../src"))))
+sys.path.append(os.path.abspath("../src"))
 
 from olist_pipeline.bronze import ingest_all
 from olist_pipeline.config import BRONZE_SCHEMA
 
-# Command ------
+# COMMAND ----------
 
 spark.sql(f"CREATE SCHEMA IF NOT EXISTS {BRONZE_SCHEMA}")
 ingest_all(spark)
