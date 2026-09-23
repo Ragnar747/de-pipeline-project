@@ -9,7 +9,7 @@ from olist_pipeline.config import BRONZE_SCHEMA, RAW_VOLUME_PATH, SOURCE_TABLES
 def ingest_file(spark: SparkSession, file_name: str, table_name: str) -> DataFrame:
     """Read one raw CSV and save it as a bronze Delta table."""
     path = f"{RAW_VOLUME_PATH}/{file_name}"
-    df = spark.read.option("header", True).csv(path)
+    df = spark.read.option("header", True).csv(path)          # ← replace this line
     df = (
         df.withColumn("_ingested_at", current_timestamp())
           .withColumn("_source_file", col("_metadata.file_path"))
