@@ -1,8 +1,7 @@
 """Bronze layer: land raw source files as delta tables, unchaged"""
 
 from pyspark.sql import DataFrame, SparkSession
-form pyspark.sql.functions import col, current_timestamp
-
+from pyspark.sql.functions import col, current_timestamp
 from olist_pipeline.config import RAW_VOLUME_PATH, BRONZE_SCHEMA, SOURCE_TABLES
 
 def ingest_file(spark: SparkSession, file_name: str, table_naem: str) -> DataFrame:
@@ -26,4 +25,3 @@ def ingest_all_files(spark: SparkSession) -> None:
         print(f'Ingesting {file_name} -> {BRONZE_SCHEMA}.{table_name}')
         ingest_file(spark, file_name, table_name)
     print("Bronze ingestion complete.")
-    
