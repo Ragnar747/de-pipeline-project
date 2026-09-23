@@ -21,3 +21,17 @@ SOURCE_TABLES = {
     "olist_geolocation_dataset.csv": "geolocation",
     "product_category_name_translation.csv": "category_translation",
 }
+
+
+# Primary key of each table: the column(s) that should identify one row
+TABLE_KEYS = {
+    "orders": ["order_id"],
+    "customers": ["customer_id"],
+    "order_items": ["order_id", "order_item_id"],
+    "order_payments": ["order_id", "payment_sequential"],
+    "order_reviews": ["review_id"],
+    "products": ["product_id"],
+    "sellers": ["seller_id"],
+    "geolocation": ["geolocation_zip_code_prefix"],
+    "category_translation": ["product_category_name"],
+}
