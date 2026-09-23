@@ -1,4 +1,9 @@
 # Databricks notebook source
+# MAGIC %load_ext autoreload
+# MAGIC %autoreload 2
+
+# COMMAND ----------
+
 import os
 import sys
 
